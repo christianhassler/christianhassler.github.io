@@ -3,18 +3,49 @@ body
 	background-color: #000000;
 }
 
-div.content
+div#content
 {
+	width: 600px;
+}
+
+*
+{
+	color: #ffffff;
+}
+
+.dynhide
+{
+	display: block;
+}
+.dynhide:hover
+{
+	border-color: white;
+	border-width: 2px;
+	border-style: solid;
+}
+
+.dynhide *
+{
+	visibility: hidden;
+	display: none;
 	width: 100%;
+	margin: 0px;
 }
 
-h1
+.dynhide:hover *
 {
-	color: #ffffff;
+	visibility: visible;
+	display: block;
 }
 
-p
+.dynhide div.title
 {
-	color: #ffffff;
+	visibility: visible;
+  display: block;
 }
-	
+
+.dynhide:hover div.title
+{
+	color: black;
+	background-color: white;
+}
