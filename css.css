@@ -1,10 +1,6 @@
 body
 {
 	background-color: #000000;
-}
-
-div#content
-{
 	width: 600px;
 }
 
@@ -41,7 +37,7 @@ div#content
 .dynhide div.title
 {
 	visibility: visible;
-  display: block;
+	 display: block;
 }
 
 .dynhide:hover div.title
