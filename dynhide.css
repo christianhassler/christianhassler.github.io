@@ -7,6 +7,7 @@
 .dynhide:hover
 {
   border-bottom: 2px solid white;
+	border-right: 2px solid white;
 }
 
 .dynhide *
@@ -20,6 +21,7 @@
 {
 	visibility: visible;
 	display: block;
+	background-color: black;
 }
 
 .dynhide *
