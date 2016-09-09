@@ -14,12 +14,13 @@ body
 
 a:link
 {
-	text-decoration-style: dotted;
-	text-decoration-line: line-through;
+	text-decoration-line: none;
 }
 
 a:hover
 {
+	text-decoration-style: dotted;
+	text-decoration-line: line-through;
 	color: yellow;
 }
 
@@ -33,19 +34,23 @@ a:hover
 	font-variant: small-caps;
 }
 
+div#overlay
+{
+	position: fixed;
+	width:600px;
+}
+
 div.menu
 {
-	position: absolute;
-	width:600px;
+	width:100%;
 }
 
 div.content
 {
+	padding-top: 34px;
 	margin-left: 100px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-left: 2px solid white;
-	border-right: 2px solid white;
+	padding-left: 0px;
+	padding-right: 0px;
 	color: darkgrey;
 }
 
