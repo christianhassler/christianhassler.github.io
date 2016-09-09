@@ -1,0 +1,41 @@
+.dynhide
+{
+	display: block;
+	margin: 0px;
+	padding: 0px;
+}
+.dynhide:hover
+{
+  border-bottom: 2px solid white;
+}
+
+.dynhide *
+{
+	visibility: hidden;
+	display: none;
+	width: 100%;
+}
+
+.dynhide:hover *
+{
+	visibility: visible;
+	display: block;
+}
+
+.dynhide *
+{
+}
+
+.dynhide div.title
+{
+	visibility: visible;
+	display: block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.dynhide:hover div.title
+{
+	color: black;
+	background-color: white;
+}
