@@ -6,7 +6,7 @@ body
 
 *
 {
-	color: #ffffff;
+	color: white;
 	padding: 0px;
 	margin: 0px;
 	font-family: sans-serif;
@@ -31,6 +31,22 @@ a:hover
 .smallcaps
 {
 	font-variant: small-caps;
+}
+
+div.menu
+{
+	position: absolute;
+	width:600px;
+}
+
+div.content
+{
+	margin-left: 100px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-left: 2px solid white;
+	border-right: 2px solid white;
+	color: darkgrey;
 }
 
 code
