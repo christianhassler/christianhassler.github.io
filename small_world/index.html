@@ -18,25 +18,59 @@
 			background-color: white;
 			color: black;
 			border: 2px solid black;
+			margin: 2px;
+			height: 120px;
 		}
-		.item>*
+		.item *
 		{
-			display: inline;
+			padding: 0px;
+			margin: 0px;
+			vertical-align: top;
+		}
+		.item > *
+		{
+			display: inline-block;
 			vertical-align: middle;
+			height: 100%;
+			margin-right: 2%;
 		}
 		.item:hover
 		{
 			border: 2px solid blue;
 			background-color:#C0C0C0;
+			color: blue;
 			cursor:pointer;
+		}
+		#githublink
+		{
+			height: 30px;
 		}
 	</style>
 </head>
 <body>
-	<div class="item" onclick="location.href='circle1/index.html';">
+	<div class="item" onclick="location.href='circle1';">
 		<img src="circle1/ic.gif">
-		<h3>Circle1</h3>
-		<p>(click to view)</p>
+		<div>
+			<h3>Circle1</h3>
+			<p>(click to view)</p>
+		</div>
+		<div>
+			<p>r=0.25</p>
+		</div>
+	</div>
+	<div class="item" onclick="location.href='circle2';">
+		<img src="circle2/ic.gif">
+		<div>
+			<h3>Circle2</h3>
+			<p>(click to view)</p>
+		</div>
+		<div>
+			<p>r=0.175</p>
+		</div>
+	</div>
+	<hr>
+	<div class="item" id="githublink" onclick="location.href='https://github.com/christianhassler/convv';">
+		<h3>Code</h3>
 	</div>
 </body>
 </html>
