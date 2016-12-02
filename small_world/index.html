@@ -1,148 +1,42 @@
 <html>
 <head>
 	<style>
-		table {
+		table, td, tr {
 			font-family: sans-serif;
 			background-color: #000000;
 			color: #ffffff;
 			text-align: center;
+			border: 2px solid white;
+			border-collapse: collapse;
 		}
-		img {
-			height: auto;
-			width: auto;
-			max-width: 60px;
-			max-height: 60px;
+		ul {
+			list-style-type: none;
+		}
+		.item
+		{
+			width:100%;
+			background-color: white;
+			color: black;
+			border: 2px solid black;
+		}
+		.item>*
+		{
+			display: inline;
+			vertical-align: middle;
+		}
+		.item:hover
+		{
+			border: 2px solid blue;
+			background-color:#C0C0C0;
+			cursor:pointer;
 		}
 	</style>
 </head>
 <body>
-	<p>
-	t = 1..200
-	</p>
-	<p>
-	delta t = 0.5
-	</p>
-	<table>
-		<tr>
-			<td></td>
-			<td>r = 0.50</td>
-			<td>r = 0.25</td>
-			<td>kernel</td>
-		<tr>
-			<td>Initial condition</td>
-			<td><img src="c1/ic.gif"></td>
-			<td><img src="c2/ic.gif"></td>
-			<td><p>n/a</p></td>
-		</tr>
-		<tr>
-			<td>p = 0</td>
-			<td><img src="c1/p0.00.gif"></td>
-			<td><img src="c2/p0.00.gif"></td>
-			<td><a href="kernel/adjacency-p0.00.png">
-						<img src="kernel/adjacency-p0.00.png">
-					</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.1</td>
-			<td><img src="c1/p0.10.gif"></td>
-			<td><img src="c2/p0.10.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.10.png">
-					<img src="kernel/adjacency-p0.10.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.2</td>
-			<td><img src="c1/p0.20.gif"></td>
-			<td><img src="c2/p0.20.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.20.png">
-					<img src="kernel/adjacency-p0.20.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.3</td>
-			<td><img src="c1/p0.30.gif"></td>
-			<td><img src="c2/p0.30.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.30.png">
-					<img src="kernel/adjacency-p0.30.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.4</td>
-			<td><img src="c1/p0.40.gif"></td>
-			<td><img src="c2/p0.40.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.40.png">
-					<img src="kernel/adjacency-p0.40.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.5</td>
-			<td><img src="c1/p0.50.gif"></td>
-			<td><img src="c2/p0.50.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.50.png">
-					<img src="kernel/adjacency-p0.50.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.6</td>
-			<td><img src="c1/p0.60.gif"></td>
-			<td><img src="c2/p0.60.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.60.png">
-					<img src="kernel/adjacency-p0.60.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.7</td>
-			<td><img src="c1/p0.70.gif"></td>
-			<td><img src="c2/p0.70.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.70.png">
-					<img src="kernel/adjacency-p0.70.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.8</td>
-			<td><img src="c1/p0.80.gif"></td>
-			<td><img src="c2/p0.80.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.80.png">
-					<img src="kernel/adjacency-p0.80.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 0.9</td>
-			<td><img src="c1/p0.90.gif"></td>
-			<td><img src="c2/p0.90.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p0.90.png">
-					<img src="kernel/adjacency-p0.90.png">
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td>p = 1</td>
-			<td><img src="c1/p1.00.gif"></td>
-			<td><img src="c2/p1.00.gif"></td>
-			<td>
-				<a href="kernel/adjacency-p1.00.png">
-					<img src="kernel/adjacency-p1.00.png">
-				</a>
-			</td>
-		</tr>
-	</table>
+	<div class="item" onclick="location.href='circle1/index.html';">
+		<img src="circle1/ic.gif">
+		<h3>Circle1</h3>
+		<p>(click to view)</p>
+	</div>
 </body>
 </html>
