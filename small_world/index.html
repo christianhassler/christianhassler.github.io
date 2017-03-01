@@ -1,76 +1,124 @@
 <html>
-<head>
+	<head>
+	<script>
+var p_vals = ["0.0", "0.2", "0.4", "0.6", "0.8", "1.0"];
+var r_vals = ["20","30","40","50","60"];
+var v_vals = ["simulation","adjacency"];
+var tmax = 199;
+var smax = 14399;
+
+function createSelector(name, arr) {
+	var p_selector = document.createElement("DIV");
+	p_selector.setAttribute("class","selector");
+	var title = document.createElement("SPAN");
+	title.setAttribute("class","selector_title");
+	title.innerHTML = name;
+	p_selector.appendChild(title);
+	for(var i=0;i<arr.length;i++) {
+		var p_label = document.createElement("LABEL");
+		var p_radio = document.createElement("INPUT");
+		p_radio.setAttribute("type","radio");
+		p_radio.setAttribute("name",name);
+		p_radio.setAttribute("value",arr[i]);
+		p_radio.setAttribute("onclick","updateImage()");
+		p_label.appendChild(p_radio);
+		p_label.insertAdjacentHTML('beforeend',arr[i]);
+		p_label.appendChild(document.createElement("BR"));
+		p_selector.appendChild(p_label);
+	}
+	document.getElementById("selector_container").appendChild(p_selector);
+}
+
+function getRadioSelection(name)  {
+	var buttons = document.getElementsByName(name);
+	for(var i=0; i<buttons.length; i++) {
+		if(buttons[i].checked) {
+			return(buttons[i].value);
+		}
+	}
+}
+
+function updateImage() {
+	var view = getRadioSelection("view");
+	var p = getRadioSelection("p");
+	var slider = document.getElementById("slider");
+	var filename;
+	var pad = "00000";
+	if(view === "simulation") {
+		slider.setAttribute("max",tmax);
+		var radius = getRadioSelection("radius");
+		var time = slider.value;
+		var tpadded = pad.substring(0, pad.length - time.length) + time;
+		filename = "png/t." + p + ".circle." + radius + "." + tpadded + ".png";
+	}
+	else if(view === "adjacency"){
+		slider.setAttribute("max",smax);
+		var slice = slider.value;
+		var apadded = pad.substring(0, pad.length - slice.length) + slice;
+		filename = "png/t." + p + "." + apadded + ".png";
+	}
+	else {
+		filename = "";
+	}
+	var img = document.getElementById("viewer_img");
+	img.setAttribute("src",filename);
+	img.setAttribute("width","100%");
+}
+
+function init() {
+	createSelector("view",v_vals);
+	createSelector("p",p_vals);
+	createSelector("radius",r_vals);
+	var slider = document.getElementById("slider");
+	slider.setAttribute("type","range");
+	slider.min=0;
+	slider.max=tmax;
+	slider.step=1;
+	slider.setAttribute("onclick","updateImage()");
+}
+	</script>
 	<style>
-		table, td, tr {
-			font-family: sans-serif;
-			background-color: #000000;
-			color: #ffffff;
-			text-align: center;
-			border: 2px solid white;
-			border-collapse: collapse;
-		}
-		ul {
-			list-style-type: none;
-		}
-		.item
-		{
-			width:100%;
-			background-color: white;
-			color: black;
-			border: 2px solid black;
-			margin: 2px;
-			height: 120px;
-		}
-		.item *
-		{
-			padding: 0px;
-			margin: 0px;
-			vertical-align: top;
-		}
-		.item > *
-		{
-			display: inline-block;
-			vertical-align: middle;
-			height: 100%;
-			margin-right: 2%;
-		}
-		.item:hover
-		{
-			border: 2px solid blue;
-			background-color:#C0C0C0;
-			color: blue;
-			cursor:pointer;
-		}
-		#githublink
-		{
-			height: 30px;
-		}
+.selector_title {
+	display:block;
+}
+	.selector {
+		width:150px;
+	}
+	#selector_container {
+		display:block;
+		background: gray;
+		border: 1px solid black;
+	}
+	#selector_container > * {
+		margin: 4px;
+		background: white;
+		padding: 4px;
+	}
+	#viewer_container {
+		display:block;
+		width:100%;
+		text-align:center;
+	}
+	#viewer_container > * {
+		width:100%;
+		margin: 4px;
+		padding: 4px;
+	}
+	body {
+		display:flex;
+		flex-direction:row;
+		padding:4px;
+	}
+
 	</style>
 </head>
-<body>
-	<div class="item" onclick="location.href='circle1';">
-		<img src="circle1/ic.gif">
-		<div>
-			<h3>Circle1</h3>
-			<p>(click to view)</p>
-		</div>
-		<div>
-			<p>r=0.25</p>
-		</div>
+<body onload="init()">
+	<div id="selector_container">
 	</div>
-	<div class="item" onclick="location.href='circle2';">
-		<img src="circle2/ic.gif">
-		<div>
-			<h3>Circle2</h3>
-			<p>(click to view)</p>
-		</div>
-		<div>
-			<p>r=0.175</p>
-		</div>
-	</div>
-	<hr>
-	<div class="item" id="githublink" onclick="location.href='https://github.com/christianhassler/convv';">
-		<h3>Code</h3>
+	<div id="viewer_container">
+	<input id="slider">
+	<img id="viewer_img">
 	</div>
 </body>
 </html>
+
